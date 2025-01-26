@@ -4,6 +4,9 @@ import com.example.Admin.Service.Config.EventClient;
 import com.example.Admin.Service.DTO.EventDTO;
 import com.example.Admin.Service.Model.Admin;
 import com.example.Admin.Service.Repository.AdminRepository;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,7 +40,7 @@ public class AdminService {
         }
         return "Event with ID: " + eventId + " is either already approved or not found";
     }
-    public Admin getAdminDetailsForEvent(String adminId) {
-        return adminRepository.getAdminDetails(adminId); // Fetch admin details using Feign Client
+    public Optional<Admin> getAdminDetailsForEvent(String id) {
+        return adminRepository.findById(id); // Fetch admin details using Feign Client
     }
 }

@@ -3,12 +3,14 @@ package com.example.Admin.Service.Config;
 
 import com.example.Admin.Service.DTO.EventDTO;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(name = "event-service") // Name of the Event service
+@FeignClient(name = "event-service")
+@Component // Name of the Event service
 public interface EventClient {
 
     // Fetch event details by event ID
